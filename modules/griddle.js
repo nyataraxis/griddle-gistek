@@ -189,7 +189,7 @@ var Griddle = React.createClass({
     setMaxPage: function setMaxPage(results) {
         var maxPageState = this.getMaxPageState(results);
         if (maxPageState) {
-            this.setState();
+            this.setState(maxPageState);
         }
     },
     setPage: function setPage(number) {
