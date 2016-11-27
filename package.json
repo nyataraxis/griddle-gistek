@@ -1,6 +1,6 @@
 {
     "name": "griddle-react",
-    "version": "0.2.16",
+    "version": "0.2.18",
     "description": "Custom version of griddle-react for nsi purposes",
     "keywords": [
         "react-component",
@@ -35,7 +35,7 @@
         "test": "jest",
         "make": "make clean build",
         "prepublish": "make clean build",
-        "version": "node update-version.js"
+        "version": "node update-version.js && git add package.json"
     },
     "pre-commit": [
         "make",
