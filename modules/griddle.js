@@ -402,7 +402,7 @@ var Griddle = React.createClass({
         return this.props.externalSortColumn ? this.props.externalSortColumn : this.state.sortColumn;
     },
     getCurrentSortAscending: function getCurrentSortAscending() {
-        return this.props.externalSortAscending ? this.props.externalSortAscending : this.state.sortAscending;
+        return typeof this.props.externalSortAscending !== 'undefined' ? this.props.externalSortAscending : this.state.sortAscending;
     },
     getCurrentMaxPage: function getCurrentMaxPage() {
         return this.props.useExternal ? this.props.externalMaxPage : this.state.maxPage;
