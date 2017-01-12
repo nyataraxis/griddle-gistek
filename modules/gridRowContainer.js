@@ -104,7 +104,7 @@ var GridRowContainer = React.createClass({
       return typeof row.$$parentId === 'undefined' || _this.state.showChildren.indexOf(row.$$parentId) >= 0;
     }).map(function (row, index) {
       var Component = _this.props.rowSettings.rowMetadata.customGridRowComponent || GridRow;
-      return React.createElement(GridRow, { key: index, useGriddleStyles: _this.props.useGriddleStyles, data: row, columnSettings: _this.props.columnSettings,
+      return React.createElement(Component, { key: index, useGriddleStyles: _this.props.useGriddleStyles, data: row, columnSettings: _this.props.columnSettings,
         rowSettings: _this.props.rowSettings, hasChildren: _this.rowHasChildren(row), toggleChildren: _this.toggleChildren.bind(_this, row.$$id),
         isChildRow: !!row.$$parentId, showChildren: _this.rowHasShownChildren(row), useGriddleIcons: _this.props.useGriddleIcons,
         parentRowExpandedClassName: _this.props.parentRowExpandedClassName, parentRowCollapsedClassName: _this.props.parentRowCollapsedClassName,

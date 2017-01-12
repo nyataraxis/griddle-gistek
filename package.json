@@ -1,6 +1,6 @@
 {
     "name": "griddle-react",
-    "version": "0.2.23",
+    "version": "0.2.24",
     "description": "Custom version of griddle-react for nsi purposes",
     "keywords": [
         "react-component",
