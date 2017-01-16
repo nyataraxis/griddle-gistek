@@ -238,7 +238,10 @@ var GridTable = React.createClass({
     }
 
     //construct the table heading component
-    var tableHeading = this.props.showTableHeading ? React.createElement(GridTitle, { useGriddleStyles: this.props.useGriddleStyles, useGriddleIcons: this.props.useGriddleIcons,
+    var HeaderComponent = this.props.useCustomHeaderComponent && this.props.customHeaderComponent ? this.props.customHeaderComponent : GridTitle;
+    var tableHeading = this.props.showTableHeading ? React.createElement(HeaderComponent, {
+      useGriddleStyles: this.props.useGriddleStyles,
+      useGriddleIcons: this.props.useGriddleIcons,
       sortSettings: this.props.sortSettings,
       columnSettings: this.props.columnSettings,
       rowSettings: this.props.rowSettings }) : "";
