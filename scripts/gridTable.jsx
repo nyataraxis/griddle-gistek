@@ -220,9 +220,7 @@ var GridTable = React.createClass({
     }
 
     //construct the table heading component
-    var HeaderComponent = this.props.useCustomHeaderComponent && this.props.customHeaderComponent
-      ? this.props.customHeaderComponent
-      : GridTitle;
+    var HeaderComponent = this.props.customHeaderComponent || GridTitle;
     var tableHeading = (this.props.showTableHeading ?
         <HeaderComponent
           useGriddleStyles={this.props.useGriddleStyles}

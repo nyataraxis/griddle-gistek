@@ -531,7 +531,9 @@ var Griddle = React.createClass({
     getStandardGridSection: function(data, cols, meta, pagingContent, hasMorePages){
         var sortProperties = this.getSortObject();
 
-        return (<div className='griddle-body'><GridTable useGriddleStyles={this.props.useGriddleStyles}
+        return (<div className='griddle-body'><GridTable
+                useGriddleStyles={this.props.useGriddleStyles}
+                customHeaderComponent={this.props.useCustomHeaderComponent ? this.props.customHeaderComponent : null}
                 columnSettings={this.columnSettings}
                 rowSettings = {this.rowSettings}
                 sortSettings={sortProperties}

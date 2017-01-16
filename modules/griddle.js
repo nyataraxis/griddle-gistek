@@ -532,7 +532,9 @@ var Griddle = React.createClass({
         return React.createElement(
             'div',
             { className: 'griddle-body' },
-            React.createElement(GridTable, { useGriddleStyles: this.props.useGriddleStyles,
+            React.createElement(GridTable, {
+                useGriddleStyles: this.props.useGriddleStyles,
+                customHeaderComponent: this.props.useCustomHeaderComponent ? this.props.customHeaderComponent : null,
                 columnSettings: this.columnSettings,
                 rowSettings: this.rowSettings,
                 sortSettings: sortProperties,
