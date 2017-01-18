@@ -29,7 +29,9 @@ var GridRowContainer = React.createClass({
         "useGriddleIcons": true,
         "isSubGriddle": false,
         "columnSettings": null,
-        "rowSettings": null,
+        "rowSettings": {
+          "rowMetadata": {},
+        },
         "paddingHeight": null,
         "rowHeight": null,
         "parentRowCollapsedClassName": "parent-row",
@@ -85,11 +87,18 @@ var GridRowContainer = React.createClass({
     render: function() {
       this.verifyProps();
 
+      // FIXME
+      let Component;
+      try {
+        Component = this.props.rowSettings.rowMetadata.customGridRowComponent || GridRow;
+      } catch (e) {
+        Component = GridRow;
+      }
+
       if(typeof this.props.data === "undefined"){return (<tbody></tbody>);}
       var arr = traverseChildren(this.props.data)
         .filter((row) => typeof row.$$parentId === 'undefined' || this.state.showChildren.indexOf(row.$$parentId) >= 0)
         .map((row, index) => {
-          const Component = this.props.rowSettings.rowMetadata.customGridRowComponent || GridRow;
           return <Component key={index} useGriddleStyles={this.props.useGriddleStyles} data={row} columnSettings={this.props.columnSettings}
             rowSettings={this.props.rowSettings} hasChildren={this.rowHasChildren(row)} toggleChildren={this.toggleChildren.bind(this, row.$$id)}
             isChildRow={!!row.$$parentId} showChildren={this.rowHasShownChildren(row)} useGriddleIcons={this.props.useGriddleIcons}
