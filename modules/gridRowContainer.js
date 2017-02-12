@@ -7,6 +7,7 @@ var React = require('react');
 var GridRow = require('./gridRow');
 var ColumnProperties = require('./columnProperties');
 var _ = require('underscore');
+var get = require('lodash/get');
 var assign = require('object-assign');
 
 function traverseChildren(parent) {
@@ -99,13 +100,7 @@ var GridRowContainer = React.createClass({
 
     this.verifyProps();
 
-    // FIXME
-    var Component = undefined;
-    try {
-      Component = this.props.rowSettings.rowMetadata.customGridRowComponent || GridRow;
-    } catch (e) {
-      Component = GridRow;
-    }
+    var Component = get(this.props, 'rowSettings.rowMetadata.customGridRowComponent', GridRow);
 
     if (typeof this.props.data === "undefined") {
       return React.createElement('tbody', null);
